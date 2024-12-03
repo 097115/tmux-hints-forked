@@ -93,7 +93,7 @@ impl Screen {
 
     pub fn find_hints(&mut self) -> Result<(), ()> {
         // regex stolen from urxvtperls url-select.pl
-        let re_str = r"(?:https?://|ftp://|git://|mailto:|file://|www\.)[\w\-@;/?:&=%\$_.+!*\x27(),~#]+[\w\-@;/?&=%\$_+!*\x27~]";
+        let re_str = r"(?:https?://|ftp://|git://|magnet:|mailto:|ircs?://|gophers?://|gemini://|file://|www\.)[\w\-@;/?:&=%\$_.+!*\x27(),~#]+[\w\-@;/?&=%\$_+!*\x27~]";
         let matcher = Regex::new(re_str).unwrap();
 
         let clean_buffer = utils::clean_string(&self.buffer);
