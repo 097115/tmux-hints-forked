@@ -36,6 +36,12 @@ fn read_loop(screen: &mut Screen) {
             '0'...'9' => {
                 if let Err(error) = screen.select(key.to_digit(10).unwrap() as usize) {
                     utils::display(&error);
+                } else {
+                    let selected = screen.selected();
+                    utils::open_url(selected);
+                    utils::display(&format!("Opening: {}", selected));
+                    utils::select_last();
+                    return;
                 }
             }
             // open
